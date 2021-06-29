@@ -1,0 +1,124 @@
+<mat-card class="example-card mt-2">
+ 
+
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel  [expanded]="openpanel">
+        <mat-expansion-panel-header class="mainpanel">
+          <mat-panel-title class="ptitle">
+            Add Student Details
+          </mat-panel-title>
+          <!-- <mat-panel-description>
+            <mat-icon>add</mat-icon>
+          </mat-panel-description> -->
+        </mat-expansion-panel-header>
+    
+       
+    <form [formGroup]="studentForm" (ngSubmit)="onFormSubmit()">
+      <mat-card-content>
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field appearance="legacy" class="w-100">
+              <mat-label>First Name</mat-label>
+              <input  matInput formControlName="fName" >
+              <mat-error *ngIf="submitted && f.fName.errors?.required">First Name is required</mat-error>
+            </mat-form-field>
+          </div>
+  
+          <div class="col-sm-6">
+            <mat-form-field appearance="legacy" class="w-100">
+              <mat-label>Last Name</mat-label>
+              <input matInput formControlName="lName">
+              <mat-error *ngIf="submitted && f.lName.errors?.required">Last Name is required</mat-error>
+            </mat-form-field>
+          </div>
+  
+        </div>
+  
+  
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field appearance="legacy" class="w-100">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email">
+              <mat-error *ngIf="submitted && f.email.errors?.required">Email is required</mat-error>
+              <mat-error *ngIf="submitted && f.email.errors?.email">Please enter valid email</mat-error>
+            </mat-form-field>
+          </div>
+  
+          <div class="col-sm-6">
+            <mat-form-field appearance="legacy" class="w-100">
+              <mat-label>Mobile Number</mat-label>
+              <input matInput formControlName="mobile">
+              <mat-error *ngIf="submitted && f.mobile.errors?.required">Mobile Number is required</mat-error>
+            </mat-form-field>
+          </div>
+  
+        </div>
+  
+        <div class="row">
+  
+  
+          <div class="col-sm-6">
+            <mat-form-field appearance="legacy" class="w-100">
+              <mat-label>Address</mat-label>
+              <textarea matInput formControlName="address"></textarea>
+              <mat-error *ngIf="submitted && f.address.errors?.required">Address is required</mat-error>
+            </mat-form-field>
+          </div>
+  
+          <div class="col-sm-6 mt-3">
+            <mat-form-field appearance="legacy" class="w-100">
+              <mat-label>City</mat-label>
+              <input matInput formControlName="city">
+              <mat-error *ngIf="submitted && f.city.errors?.required">City is required</mat-error>
+            </mat-form-field>
+          </div>
+  
+        </div>
+  
+     
+        <div class="row">
+          <div class="col-sm-6 mt-3">
+            <mat-form-field appearance="fill" style="width: 100%;">
+              <mat-label>Date of Birth</mat-label>
+              <input formControlName="dob" matInput [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="submitted && f.dob.errors?.required">Date Of Birth is required</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6 mt-4">
+            <div class=" d-flex">
+            <mat-label style="color: grey;">Select gender: </mat-label>
+            <mat-radio-group class="ml-3" aria-label="Select an option" formControlName="gender">
+              <mat-radio-button value="1">Male</mat-radio-button>
+              &nbsp;
+              <mat-radio-button value="2">Female</mat-radio-button>
+            </mat-radio-group>
+            </div>
+            <mat-error *ngIf="submitted && f.gender.errors?.required">Please Select Gender</mat-error>
+  
+          </div>
+        </div>
+  
+  
+  
+  
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="button" (click)="onFormSubmit()">Submit</button>
+        <button mat-raised-button color="warn" type="button" (click)="resetForm()">Cancel</button>
+      </mat-card-actions>
+    </form>
+    
+      </mat-expansion-panel>
+    
+   
+    </mat-accordion>
+    
+  </mat-card>
+  
+  <br>
+  
+  <app-student-details-list [studentData]="studentData" [studentForm]="studentForm" (toggleEvent)="toggleEventHander($event)" (sendData)="setFormValue($event)"></app-student-details-list>
+  

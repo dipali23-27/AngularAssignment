@@ -1,0 +1,12 @@
+.container{
+    max-width: 1000px;
+  }
+  
+  
+  .example-icon {
+    padding: 0 14px;
+  }
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  

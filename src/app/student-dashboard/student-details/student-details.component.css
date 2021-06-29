@@ -1,0 +1,38 @@
+mat-card-title{
+    margin: 16px 0 0 0 !important;
+    height: 40px;
+  }
+  .mat-card-header .mat-card-title {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  mat-card{
+    border: 1px solid lightgray;
+    padding: 0;
+  }
+  example-action-buttons {
+    padding-bottom: 20px;
+  }
+  .mainpanel {
+    border: 1px solid lightgray;
+  }
+  .ptitle {
+    font-size: large;
+    font-weight: 500;
+  }
+  .example-headers-align .mat-expansion-panel-header-title,
+  .example-headers-align .mat-expansion-panel-header-description {
+    flex-basis: 0;
+  }
+  
+  ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: white;
+  }
+  .example-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .example-headers-align .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
